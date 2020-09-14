@@ -50,7 +50,12 @@ if __name__ == '__main__':
     print(work.get_work())
 
 ```
-
+    运行结果：
+    basic_class: work!
+    或
+    project_class: work!
+    随机选一个实例化。
+    
     这段代码的理念其实很简单，就是类似一个函数，传入需要创建的产品类型，然后返回相应的产品就行了。在这里work是我们的产品
     然后使用SimpleCourseFactory.create_work来创建work，在这个静态方法中，我们根据传递的需要创建的work类型来创建不同的
     work。
