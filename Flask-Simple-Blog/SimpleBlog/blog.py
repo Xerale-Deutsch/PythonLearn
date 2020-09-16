@@ -5,7 +5,7 @@ from flask import Flask, render_template, g, flash, request, session, abort, red
 DATABASE = '/tmp/flaskr.db'
 ENV = 'development'
 DEBUG = True
-SECRET_KEY = 'development key'
+SECRET_KEY = 'abcdefghijklmnopqrstuvwxyz'
 USERNAME = 'admin'
 PASSWORD = 'admin'
 
