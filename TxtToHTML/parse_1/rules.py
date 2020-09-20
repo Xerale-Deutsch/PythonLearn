@@ -16,13 +16,13 @@ class Rule(object):
         return True
 
 
-class HeadOneRule(Rule):
+class HeadingRule(Rule):
     """
     生成h1的规则
     <h1>
     """
 
-    typed = 'title'
+    typed = 'heading'
 
     def condition(self, block):
         """
@@ -32,13 +32,13 @@ class HeadOneRule(Rule):
         return "\n" not in block and len(block) <= 70 and not [block][-1] == ':'
 
 
-class HeadTwoRule(HeadOneRule):
+class TitleRule(HeadingRule):
     """
-    h2规则
-    继承自h1
+    title规则
+    继承自Headingrule
     """
 
-    typed = 'heading'
+    typed = 'title'
     init = True     # 首次调用为T，再次调用为F
 
     def condition(self, block):
@@ -117,7 +117,7 @@ class ParagraphRule(Rule):
     p规则
     """
 
-    typed = 'p'
+    typed = 'paragraph'
 
     def condition(self, block):
         """
@@ -127,4 +127,4 @@ class ParagraphRule(Rule):
         return True
 
 
-rule_list = [ListRule(), ListItemRule(), HeadTwoRule(), HeadOneRule(), ParagraphRule()]
+rule_list = [ListRule(), ListItemRule(), TitleRule(), HeadingRule(), ParagraphRule()]
