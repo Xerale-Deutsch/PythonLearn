@@ -65,18 +65,18 @@ def decode_data_from_image(image):
 
     # 因为有可能出现8个连续0的情况，故查找16个连续0的情况
     many_zero_index = binary.find('0' * 16)
-    # 末尾可能为0，判断是否是8的倍数，然后确定末尾数字有多少0，来确定正确的结束为止
+    # 末尾可能为0，判断是否是8的倍数，然后确定末尾数字有多少0，来确定正确的结束位置
     end_index = many_zero_index + 8 - many_zero_index % 8 if many_zero_index % 8 != 0 else many_zero_index
 
     binary_data = binary[:end_index]
-    data = []
+    de_data = []
     for i in range(len(binary_data) // 8):
         code = binary_data[i * 8:(i + 1) * 8]
-        data.append(int(code, 2))
+        de_data.append(int(code, 2))
 
-    data = bytes(data).decode()
+    de_data = bytes(de_data).decode()
 
-    return data
+    return de_data
 
 
 if __name__ == '__main__':
